@@ -1,6 +1,6 @@
 def dfs(graph, start, visited=None):
     if not graph or start not in graph:
-        return None
+        return -1
     if visited == None:
         visited = set()
     visited.add(start)
@@ -11,7 +11,7 @@ def dfs(graph, start, visited=None):
 
 def dfs_order(graph, start):
     if not graph or start not in graph:
-        return None
+        return -1
     visited = {start}
     stack = [start]
     order = []
@@ -26,7 +26,7 @@ def dfs_order(graph, start):
 
 def has_cycle_directed(graph):
     if not graph:
-        return False
+        return -1
     all_vertices = set(graph.keys())
     for neighbours in graph.values():
         all_vertices.update(neighbours)
@@ -46,7 +46,7 @@ def has_cycle_directed(graph):
 
 def has_cycle_undirected(graph):
     if not graph:
-        return False
+        return -1
     visited = set()
     def dfs(node, parent):
         visited.add(node)
