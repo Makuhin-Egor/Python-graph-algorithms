@@ -2,7 +2,7 @@ from collections import deque
 
 def count_islands(grid):
     if not grid:
-        return -1
+        raise ValueError('Grid is empty!')
     rows, cols = len(grid), len(grid[0])
     directions = [(1, 0), (-1, 0), (0, 1), (0, -1)]
     visited = [[False] * cols for _ in range(rows)]
@@ -27,7 +27,7 @@ def count_islands(grid):
 
 def get_islands_order(grid):
     if not grid:
-        return -1
+        raise ValueError('Grid is empty!')
     rows, cols = len(grid), len(grid[0])
     directions = [(1, 0), (-1, 0), (0, 1), (0, -1)]
     visited = [[False] * cols for _ in range(rows)]
@@ -54,7 +54,7 @@ def get_islands_order(grid):
 
 def largest_island_area(grid):
     if not grid:
-        return -1
+        raise ValueError('Grid is empty!')
     rows, cols = len(grid), len(grid[0])
     directions = [(1, 0), (-1, 0), (0, 1), (0, -1)]
     visited = [[False] * cols for _ in range(rows)]
@@ -81,13 +81,14 @@ def largest_island_area(grid):
 
 def lee_algorithm(grid, start, end):
     if not grid:
-        return -1
+        raise ValueError('Grid is empty!')
     rows, cols = len(grid), len(grid[0])
     sr, sc = start
     er, ec = end
-    if not (0 <= sr < rows and 0 <= er < rows and 0 <= sc < cols and 0 <= ec < cols)\
-    or grid[sr][sc] != 0 or grid[er][ec] != 0:
-        return -1
+    if not (0 <= sr < rows and 0 <= er < rows and 0 <= sc < cols and 0 <= ec < cols):
+        raise KeyError(f'{start} or {end} cell not in grid!')
+    if grid[sr][sc] != 0 or grid[er][ec] != 0:
+        raise KeyError(f'{start} or {end} cell is a wall!')
     if start == end:
         return [start]
     directions = [(1, 0), (-1, 0), (0, 1), (0, -1)]
@@ -117,13 +118,14 @@ def lee_algorithm(grid, start, end):
 
 def lee_algorithm_len(grid, start, end):
     if not grid:
-        return -1
+        raise ValueError('Grid is empty!')
     rows, cols = len(grid), len(grid[0])
     sr, sc = start
     er, ec = end
-    if not (0 <= sr < rows and 0 <= er < rows and 0 <= sc < cols and 0 <= ec < cols)\
-    or grid[sr][sc] != 0 or grid[er][ec] != 0:
-        return -1
+    if not (0 <= sr < rows and 0 <= er < rows and 0 <= sc < cols and 0 <= ec < cols):
+        raise KeyError(f'{start} or {end} cell not in grid!')
+    if grid[sr][sc] != 0 or grid[er][ec] != 0:
+        raise KeyError(f'{start} or {end} cell is a wall!')
     if start == end:
         return 0
     directions = [(1, 0), (-1, 0), (0, 1), (0, -1)]
@@ -146,7 +148,7 @@ def lee_algorithm_len(grid, start, end):
 
 def dist_to_nearest_one(grid):
     if not grid:
-        return -1
+        raise ValueError('Grid is empty!')
     rows, cols = len(grid), len(grid[0])
     directions = [(1, 0), (-1, 0), (0, 1), (0, -1)]
     queue = deque()
@@ -168,7 +170,7 @@ def dist_to_nearest_one(grid):
 
 def rotting_oranges(grid):
     if not grid:
-        return -1
+        raise ValueError('Grid is empty!')
     rows, cols = len(grid), len(grid[0])
     directions = [(1, 0), (-1, 0), (0, 1), (0, -1)]
     queue = deque()
@@ -193,9 +195,10 @@ def rotting_oranges(grid):
     return max_time if fresh_count == 0 else None
 
 def knight_moves(n, start, end):
-    if n <= 0\
-    or not (0 <= start[0] < n and 0 <= start[1] < n and 0 <= end[0] < n and 0 <= end[1] < n):
-        return -1
+    if n <= 0:
+        raise ValueError('Field is empty!')
+    if not (0 <= start[0] < n and 0 <= start[1] < n and 0 <= end[0] < n and 0 <= end[1] < n):
+        raise KeyError(f'{start} or {end} cell not in field!')
     if start == end:
         return [start]
     directions = [(-2, -1), (-2, 1), (-1, -2), (-1, 2), (1, -2), (1, 2), (2, -1), (2, 1)]
@@ -220,9 +223,10 @@ def knight_moves(n, start, end):
     return None
 
 def knight_moves_len(n, start, end):
-    if n <= 0\
-    or not (0 <= start[0] < n and 0 <= start[1] < n and 0 <= end[0] < n and 0 <= end[1] < n):
-        return -1
+    if n <= 0:
+        raise ValueError('Field is empty!')
+    if not (0 <= start[0] < n and 0 <= start[1] < n and 0 <= end[0] < n and 0 <= end[1] < n):
+        raise KeyError(f'{start} or {end} cell not in field!')
     if start == end:
         return 0
     directions = [(-2, -1), (-2, 1), (-1, -2), (-1, 2), (1, -2), (1, 2), (2, -1), (2, 1)]

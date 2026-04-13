@@ -1,8 +1,10 @@
 from collections import deque
 
 def bfs(graph, start, visited=None):
-    if not graph or start not in graph:
-        return -1
+    if not graph:
+        raise ValueError('Graph is empty!')
+    if start not in graph:
+        raise KeyError(f'Vertex {start} not in graph!')
     if visited == None:
         visited = set()
     visited.add(start)
@@ -16,8 +18,10 @@ def bfs(graph, start, visited=None):
     return visited
 
 def bfs_order(graph, start, visited=None):
-    if not graph or start not in graph:
-        return -1
+    if not graph:
+        raise ValueError('Graph is empty!')
+    if start not in graph:
+        raise KeyError(f'Vertex {start} not in graph!')
     if visited == None:
         visited = set()
     visited.add(start)
@@ -33,8 +37,10 @@ def bfs_order(graph, start, visited=None):
     return order
 
 def bfs_count(graph, start, visited=None):
-    if not graph or start not in graph:
-        return -1
+    if not graph:
+        raise ValueError('Graph is empty!')
+    if start not in graph:
+        raise KeyError(f'Vertex {start} not in graph!')
     if visited == None:
         visited = set()
     visited.add(start)
@@ -58,7 +64,7 @@ def normalize(graph):
 
 def is_connected_dir_undir_weak(graph, directed=False):
     if not graph:
-        return -1
+        raise ValueError('Graph is empty!')
     graph = normalize(graph) if directed else graph
     start = next(iter(graph))
     size = bfs_count(graph, start)
@@ -66,7 +72,7 @@ def is_connected_dir_undir_weak(graph, directed=False):
 
 def count_components_dir_undir_weak(graph, directed=False):
     if not graph:
-        return -1
+        raise ValueError('Graph is empty!')
     graph = normalize(graph) if directed else graph
     visited = set()
     count = 0
@@ -78,7 +84,7 @@ def count_components_dir_undir_weak(graph, directed=False):
 
 def get_components_order_dir_undir_weak(graph, directed=False):
     if not graph:
-        return -1
+        raise ValueError('Graph is empty!')
     graph = normalize(graph) if directed else graph
     visited = set()
     components = []
@@ -90,7 +96,7 @@ def get_components_order_dir_undir_weak(graph, directed=False):
 
 def largest_component_size_dir_undir_weak(graph, directed=False):
     if not graph:
-        return -1
+        raise ValueError('Graph is empty!')
     graph = normalize(graph) if directed else graph
     visited = set()
     max_size = 0
@@ -101,8 +107,10 @@ def largest_component_size_dir_undir_weak(graph, directed=False):
     return max_size
 
 def shortest_path(graph, start, end):
-    if not graph or start not in graph:
-        return -1
+    if not graph:
+        raise ValueError('Graph is empty!')
+    if start not in graph:
+        raise KeyError(f'Vertex {start} not in graph!')
     if start == end:
         return [start]
     visited = {start}
@@ -125,8 +133,10 @@ def shortest_path(graph, start, end):
     return None
 
 def shortest_path_len(graph, start, end):
-    if not graph or start not in graph:
-        return -1
+    if not graph:
+        raise ValueError('Graph is empty!') 
+    if start not in graph:
+        raise KeyError(f'Vertex {start} not in graph!')
     if start == end:
         return 0
     visited = {start}
@@ -142,8 +152,12 @@ def shortest_path_len(graph, start, end):
     return None
 
 def bidirectional_bfs_shortest_path_len_undirected(graph, start, end):
-    if not graph or start not in graph or end not in graph:
-        return -1
+    if not graph:
+        raise ValueError('Graph is empty!')
+    if start not in graph:
+        raise KeyError(f'Vertex {start} not in graph!')
+    if end not in graph:
+        raise KeyError(f'Vertex {end} not in graph!')
     if start == end:
         return 0
     dict_s = {start: 0}

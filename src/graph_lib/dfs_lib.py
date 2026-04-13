@@ -1,6 +1,8 @@
 def dfs(graph, start, visited=None):
-    if not graph or start not in graph:
-        return -1
+    if not graph:
+        raise ValueError('Graph is empty!')
+    if start not in graph:
+        raise KeyError(f'Vertex {start} not in graph!')
     if visited == None:
         visited = set()
     visited.add(start)
@@ -10,8 +12,10 @@ def dfs(graph, start, visited=None):
     return visited
 
 def dfs_order(graph, start):
-    if not graph or start not in graph:
-        return -1
+    if not graph:
+        raise ValueError('Graph is empty!')
+    if start not in graph:
+        raise KeyError(f'Vertex {start} not in graph!')
     visited = {start}
     stack = [start]
     order = []
@@ -26,7 +30,7 @@ def dfs_order(graph, start):
 
 def has_cycle_directed(graph):
     if not graph:
-        return -1
+        raise ValueError('Graph is empty!')
     all_vertices = set(graph.keys())
     for neighbours in graph.values():
         all_vertices.update(neighbours)
@@ -46,7 +50,7 @@ def has_cycle_directed(graph):
 
 def has_cycle_undirected(graph):
     if not graph:
-        return -1
+        raise ValueError('Graph is empty!')
     visited = set()
     def dfs(node, parent):
         visited.add(node)
