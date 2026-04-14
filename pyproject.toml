@@ -1,0 +1,22 @@
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta:__legacy__"
+[project]
+name = "graph-algs"
+version = "0.2.0"
+description = "A clean, dependency-free Python library for BFS, DFS, and grid traversal algorithms"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.7"
+keywords = ["graph", "bfs", "dfs", "algorithms", "grid"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+[project.urls]
+Homepage = "https://github.com/Makuhin-Egor/Python-graph-algorithms-library"
+[tool.setuptools.packages.find]
+where = ["src"]
