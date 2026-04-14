@@ -1,3 +1,5 @@
+__all__ = ['dfs', 'dfs_order']
+
 def dfs(graph, start, visited=None):
     if not graph:
         raise ValueError('Graph is empty!')

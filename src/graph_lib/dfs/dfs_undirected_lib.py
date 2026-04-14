@@ -1,3 +1,5 @@
+__all__ = ['has_cycle_undirected']
+
 def has_cycle_undirected(graph):
     if not graph:
         raise ValueError('Graph is empty!')
