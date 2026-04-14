@@ -2,7 +2,7 @@ __all__ = ['is_connected_undirected', 'count_components_undirected',\
 'get_components_order_undirected', 'largest_component_size_undirected', \
 'shortest_path_len_undirected']
 
-from bfs_general_lib import *
+from .bfs_general_lib import *
 
 def is_connected_undirected(graph):
     if not graph:

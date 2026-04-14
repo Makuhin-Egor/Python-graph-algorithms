@@ -1,7 +1,7 @@
 __all__ = ['normalize', 'is_connected_directed', 'count_components_directed', \
 'get_components_order_directed', 'largest_component_size_directed']
 
-from bfs_general_lib import *
+from .bfs_general_lib import *
 
 def normalize(graph):
     undirected = {node: set(neighbours) for node, neighbours in graph.items()}
