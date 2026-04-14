@@ -6,6 +6,20 @@ A clean, dependency-free Python library for common **BFS**, **DFS**, and **grid 
 
 ---
 
+## 📥 Installation
+
+```bash
+pip install graph-algorithms
+```
+
+Then import directly from the top-level package — no need to reference internal subfolders:
+
+```python
+from graph_lib import shortest_path, bfs, lee_algorithm, has_cycle_directed
+```
+
+---
+
 ## 📦 Modules
 
 ```
@@ -320,13 +334,11 @@ Coordinates are always `(row, col)`. All movement is **4-directional** (up, down
 ## 💡 Usage Examples
 
 ```python
-from bfs.bfs_general_lib import shortest_path
-from bfs.bfs_undirected_lib import count_components_undirected
-from bfs.bfs_directed_lib import count_components_directed
-from dfs.dfs_general_lib import dfs_order
-from dfs.dfs_directed_lib import has_cycle_directed
-from dfs.dfs_undirected_lib import has_cycle_undirected
-from bfs.grid_bfs_lib import lee_algorithm, rotting_oranges
+from graph_lib import (
+    shortest_path, count_components_undirected, count_components_directed,
+    dfs_order, has_cycle_directed, has_cycle_undirected,
+    lee_algorithm, rotting_oranges
+)
 
 # Shortest path in an undirected graph
 graph = {1: [2, 3], 2: [1, 4], 3: [1], 4: [2]}
