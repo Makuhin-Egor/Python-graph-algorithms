@@ -9,7 +9,7 @@ A clean, dependency-free Python library for common **BFS**, **DFS**, and **grid 
 ## 📥 Installation
 
 ```bash
-pip install graph-algorithms
+pip install graph-algs
 ```
 
 Then import directly from the top-level package — no need to reference internal subfolders:
