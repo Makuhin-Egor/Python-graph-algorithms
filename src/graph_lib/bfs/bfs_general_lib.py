@@ -1,4 +1,4 @@
-__all__ = ['bfs', 'bfs_order', 'bfs_count', 'shortest_path', \
+__all__ = ['bfs', 'bfs_order', 'bfs_count', 'bfs_distances', 'shortest_path', \
 'shortest_path_len', 'deque']
 
 from collections import deque
