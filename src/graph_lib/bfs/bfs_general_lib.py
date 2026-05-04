@@ -58,6 +58,21 @@ def bfs_count(graph, start, visited=None):
                 queue.append(neighbour)
     return size
 
+def bfs_distances(graph, start):
+    if not graph:
+        raise ValueError('Graph is empty!')
+    if start not in graph:
+        raise KeyError(f'Vertex {start} not in graph!')
+    distances = {start: 0}
+    queue = deque([start])
+    while queue:
+        node = queue.popleft()
+        for neighbour in graph[node]:
+            if neighbour not in distances:
+                distances[neighbour] = distances[node] + 1
+                queue.append(neighbour)
+    return distances
+
 def shortest_path(graph, start, end):
     if not graph:
         raise ValueError('Graph is empty!')
