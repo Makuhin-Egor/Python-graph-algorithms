@@ -107,6 +107,11 @@ bfs_count(graph, start, visited=None) → int
 ```
 Returns the count of nodes reachable from `start`.
 
+```python
+bfs_distances(graph, start) → dict
+```
+Returns a dictionary mapping each reachable node to its shortest distance (in number of edges) from start.
+
 #### Shortest Paths
 
 ```python
@@ -335,7 +340,7 @@ Coordinates are always `(row, col)`. All movement is **4-directional** (up, down
 
 ```python
 from graph_lib import (
-    shortest_path, count_components_undirected, count_components_directed,
+    shortest_path, bfs_distances, count_components_undirected, count_components_directed,
     dfs_order, has_cycle_directed, has_cycle_undirected,
     lee_algorithm, rotting_oranges
 )
@@ -343,6 +348,10 @@ from graph_lib import (
 # Shortest path in an undirected graph
 graph = {1: [2, 3], 2: [1, 4], 3: [1], 4: [2]}
 print(shortest_path(graph, 1, 4))  # → [1, 2, 4]
+
+# Get distances from a start node
+graph = {'A': ['B', 'C'], 'B': ['D'], 'C': [], 'D': []}
+print(bfs_distances(graph, 'A'))  # → {'A': 0, 'B': 1, 'C': 1, 'D': 2}
 
 # Count weakly connected components in a directed graph
 dgraph = {'A': ['B'], 'B': [], 'C': ['D'], 'D': []}
@@ -374,7 +383,7 @@ print(rotting_oranges(grid))  # → 4
 | Invalid / empty input | `ValueError` or `KeyError` |
 | Valid input, goal unreachable | `None` |
 | `start == end` (path functions) | `[start]` or `0` |
-| Success | Result value or list |
+| Success | Result value or list (dict) |
 
 ---
 
