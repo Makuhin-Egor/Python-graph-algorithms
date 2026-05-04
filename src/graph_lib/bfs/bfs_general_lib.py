@@ -67,7 +67,7 @@ def bfs_distances(graph, start):
     queue = deque([start])
     while queue:
         node = queue.popleft()
-        for neighbour in graph[node]:
+        for neighbour in graph.get(node, []):
             if neighbour not in distances:
                 distances[neighbour] = distances[node] + 1
                 queue.append(neighbour)
