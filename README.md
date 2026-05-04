@@ -110,7 +110,7 @@ Returns the count of nodes reachable from `start`.
 ```python
 bfs_distances(graph, start) → dict
 ```
-Returns a dictionary mapping each reachable node to its shortest distance (in number of edges) from start.
+Returns a dictionary mapping each reachable node to its shortest distance (in number of edges) from `start`.
 
 #### Shortest Paths
 
